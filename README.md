@@ -8,7 +8,7 @@ This project was made for the final session of the sophomore course "Introductio
 
 - [Features](https://github.com/Goofeat/Social-Network#features)
 - [Commands](https://github.com/Goofeat/Social-Network#commands)
-    - [My Profile](https://github.com/Goofeat/Social-Network#users-profile)
+    - [My Profile](https://github.com/Goofeat/Social-Network#my-profile)
     - [User's Profile](https://github.com/Goofeat/Social-Network#users-profile)
 
 

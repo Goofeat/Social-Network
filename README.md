@@ -4,6 +4,14 @@
 This project was made for the final session of the sophomore course "Introduction to Algorithms" at Suleyman Demirel University.
 
 
+## Acknowledgements
+
+- [Features](https://github.com/Goofeat/Social-Network#features)
+- [Commands](https://github.com/Goofeat/Social-Network#commands)
+    - [My Profile](https://github.com/Goofeat/Social-Network#users-profile)
+    - [User's Profile](https://github.com/Goofeat/Social-Network#users-profile)
+
+
 ## Features
 
 - Registering a profile with properties such as name, surname, age, email, gender, phone number
@@ -40,7 +48,7 @@ This project was made for the final session of the sophomore course "Introductio
 - `/logout` — log out of your account.
 - `/quit` or `/exit` — exit the program.
 
-### Profile
+### My Profile
 
 `> /my_profile`
 
@@ -59,6 +67,8 @@ Your profile:
 | Followers: 0
 ——————————————————————————————————————————————————
 ```
+
+### User's Profile
 
 `> /profile test`
 

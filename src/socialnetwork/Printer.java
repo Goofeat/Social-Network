@@ -59,11 +59,11 @@ class Printer {
         System.out.printf("| Gender: %s%n",
                           Objects.equals(user.getGender(), "M") ? "Male" : "Female");
 
-        if (user.isEmailHidden()) System.out.println("Email: [hidden]");
+        if (user.isEmailHidden()) System.out.println("| Email: [hidden]");
         else System.out.printf("| Email: %s%n", user.getEmail());
 
 
-        if (user.isNumberHidden()) System.out.println("Phone number: [hidden]");
+        if (user.isNumberHidden()) System.out.println("| Phone number: [hidden]");
         else System.out.printf("| Phone number: %s%n", formatPhone(user.getPhoneNumber()));
 
         System.out.println(SPLITTER);

@@ -13,18 +13,32 @@ class User {
     private String       gender;
     private String       email;
     private String       phoneNumber;
+    // Set with all users, where the element is the user's data
+    // Set followsTo is where the current user's subscriptions are stored
     private Set<User>    followsTo;
+    // Set subscribers is where the current user's subscribers are stored
     private Set<User>    subscribers;
+    // Set blockedUsers is where the blocked users of the current user are located
     private Set<User>    blockedUsers;
+    // Set blockedBy is where the users who have blocked the current user are located
     private Set<User>    blockedBy;
+    // If isEmailHidden is true, then other users cannot see the current user's email address
+    // true by default
     private boolean      isEmailHidden;
+    // If isNumberHidden is true, then other users cannot see the current user's phone number
+    // true by default
     private boolean      isNumberHidden;
+    // Set with all posts, where the element is the post's data
     private Set<Post>    posts;
+    // Set with all posts, where the element is the comment's data
     private Set<Comment> comments;
 
+    // Empty constructor
     public User() {
     }
 
+    // Constructor with all data except followsTo, subscribers, blockedUsers,
+    //                                  blockedBy, posts and comments
     public User(String userID, String password, String firstName, String surname,
                 String age, String gender, String email, String phoneNumber) {
         this.userID         = userID;

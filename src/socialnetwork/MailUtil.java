@@ -17,8 +17,8 @@ class MailUtil {
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
-        String myAccountEmail = "azharbayev@gmail.com";
-        String password       = "pjfvrquflqjbsbdt";
+        String myAccountEmail = "email@gmail.com";
+        String password       = "qwerty";
 
         Session session = Session.getInstance(props, new Authenticator() {
             @Override

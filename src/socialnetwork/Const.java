@@ -1,8 +1,8 @@
 package socialnetwork;
 
+// Constants like name of tables (users, posts, comments), of columns, etc.
 class Const {
 
-    // @formatter:off
     protected static final String USERS_TABLE            = "users";
     protected static final String USERS_USER_ID          = "user_id";
     protected static final String USERS_PASSWORD         = "password";

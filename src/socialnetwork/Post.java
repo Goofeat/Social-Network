@@ -8,16 +8,21 @@ import java.util.Set;
 
 class Post extends User {
 
+    // Post properties
     private String      postID;
     private String      userID;
     private String      message;
     private String      publishDate;
+    // Set commentsID is where the current post's comments are stored
     private Set<String> commentsID;
+    // Set likedUsers is where the current post's likes are stored
     private Set<String> likedUsers;
 
+    // Empty constructor
     public Post() {
     }
 
+    // Constructor with all data except commentsID, likedUsers
     public Post(int postID, String userID, String message, Date publishDate) {
         this.postID      = String.valueOf(postID);
         this.userID      = userID;
@@ -57,8 +62,7 @@ class Post extends User {
         if (!postID.equals(post.postID)) return false;
         if (!userID.equals(post.userID)) return false;
         if (!message.equals(post.message)) return false;
-        if (!Objects.equals(commentsID, post.commentsID))
-            return false;
+        if (!Objects.equals(commentsID, post.commentsID)) return false;
         return Objects.equals(likedUsers, post.likedUsers);
     }
 

@@ -5,6 +5,7 @@ import java.util.Set;
 
 class User {
 
+    // User properties
     private String       userID;
     private String       password;
     private String       firstName;
@@ -13,7 +14,7 @@ class User {
     private String       gender;
     private String       email;
     private String       phoneNumber;
-    // Set with all users, where the element is the user's data
+    // Sets with all users, where the element is the user's data
     // Set followsTo is where the current user's subscriptions are stored
     private Set<User>    followsTo;
     // Set subscribers is where the current user's subscribers are stored

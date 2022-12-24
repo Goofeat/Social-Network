@@ -5,14 +5,15 @@ import java.util.Date;
 
 class Comment extends Post {
 
+    // Comment properties
     final String commentID;
     final String userID;
     final String postID;
     final String message;
     final String publishDate;
 
-    public Comment(int commentID, String userID, String postID, String message,
-                   Date publishDate) {
+    // Constructor with all data
+    public Comment(int commentID, String userID, String postID, String message, Date publishDate) {
         this.commentID   = String.valueOf(commentID);
         this.userID      = userID;
         this.postID      = postID;
@@ -64,13 +65,13 @@ class Comment extends Post {
         return message;
     }
 
-    public String getCommentID() {
-        return commentID;
-    }
-
     @Override
     public String getPublishDate() {
         return publishDate;
+    }
+
+    public String getCommentID() {
+        return commentID;
     }
 
 }

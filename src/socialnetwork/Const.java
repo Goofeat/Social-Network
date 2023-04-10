@@ -26,7 +26,9 @@ class Const {
                     USERS_AGE + "," +
                     USERS_GENDER + "," +
                     USERS_EMAIL + "," +
-                    USERS_PHONENUMBER;
+                    USERS_PHONENUMBER + "," +
+                    USERS_IS_EMAIL_HIDDEN + "," +
+                    USERS_IS_NUMBER_HIDDEN;
 
     protected static final String POSTS_TABLE        = "posts";
     protected static final String POSTS_POST_ID      = "post_id";

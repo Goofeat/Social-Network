@@ -41,7 +41,8 @@ class User {
     // Constructor with all data except followsTo, subscribers, blockedUsers,
     //                                  blockedBy, posts and comments
     public User(String userID, String password, String firstName, String surname,
-                String age, String gender, String email, String phoneNumber) {
+                String age, String gender, String email, String phoneNumber,
+                boolean isEmailHidden, boolean isNumberHidden) {
         this.userID         = userID;
         this.password       = password;
         this.firstName      = firstName;
@@ -54,8 +55,8 @@ class User {
         subscribers         = new HashSet<>();
         blockedUsers        = new HashSet<>();
         blockedBy           = new HashSet<>();
-        this.isEmailHidden  = true;
-        this.isNumberHidden = true;
+        this.isEmailHidden  = isEmailHidden;
+        this.isNumberHidden = isNumberHidden;
         posts               = new HashSet<>();
         comments            = new HashSet<>();
     }

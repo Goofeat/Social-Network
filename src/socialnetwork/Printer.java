@@ -11,6 +11,7 @@ class Printer {
     static void printProfile() {
         System.out.println(SPLITTER);
         System.out.println("Your profile:");
+        System.out.println(SPLITTER);
         System.out.printf("| Your username: @%s%n", currentUser.getUserID());
 
         System.out.printf("| Your full name: %s (%s years old)%n",
@@ -53,6 +54,7 @@ class Printer {
 
         System.out.println(SPLITTER);
         System.out.printf("@%s's profile:%n", user.getUserID());
+        System.out.println(SPLITTER);
         System.out.printf("| Full name: %s (%s years old)%n",
                           user.getFullName(), user.getAge());
 
@@ -74,14 +76,12 @@ class Printer {
     }
 
     static void printWall() {
-        for (User user : currentUser.getFollowsTo()) {
-            if (user.getPosts().size() == 0) {
-                System.out.println(SPLITTER);
-                System.out.println(
-                        "@" + user.getUserID() + ", who you are followed to has no posts.");
-                continue;
-            }
+        if (currentUser.getFollowsTo().size() == 0) {
+            System.out.println(SPLITTER);
+            System.out.println("You don't follow anyone");
+        }
 
+        for (User user : currentUser.getFollowsTo()) {
             showPostsOf(user.getUserID());
         }
         System.out.println(SPLITTER);

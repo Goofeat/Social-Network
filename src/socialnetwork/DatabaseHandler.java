@@ -223,7 +223,8 @@ class DatabaseHandler extends Configs {
         return new User(input.getString(1), input.getString(2),
                         input.getString(3), input.getString(4),
                         input.getString(5), input.getString(6),
-                        input.getString(7), input.getString(8));
+                        input.getString(7), input.getString(8),
+                        input.getBoolean(9), input.getBoolean(10));
     }
 
     public static void signUpUser(User newUser) {
@@ -507,8 +508,6 @@ class DatabaseHandler extends Configs {
             prSt.executeUpdate();
 
             readUsers();
-
-            System.out.println("Successful!");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -539,8 +538,6 @@ class DatabaseHandler extends Configs {
             prSt.executeUpdate();
 
             readUsers();
-
-            System.out.println("Successful!");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

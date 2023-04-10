@@ -73,11 +73,13 @@ class Main {
     public static boolean isBlock(User user) {
         if (currentUser.getBlockedUsers().contains(user)) {
             System.out.println("You blocked this user.");
+            in.nextLine();
             return true;
         }
 
         if (currentUser.getBlockedBy().contains(user)) {
             System.out.println("This user blocked you.");
+            in.nextLine();
             return true;
         }
 

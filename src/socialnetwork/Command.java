@@ -51,6 +51,7 @@ class Command {
                 case "profile" -> printProfile(option);
                 case "change" -> forgot();
                 case "settings" -> settings();
+                case "sort" -> sort();
                 case "logout" -> logOut();
                 default -> printTip();
             }
@@ -64,6 +65,13 @@ class Command {
         }
 
         console();
+    }
+
+    static void sort() {
+//        System.out.println("Choose which type of sorting do you prefer (id, like, date, comment):");
+        System.out.println(SPLITTER);
+        System.out.println("Coming soon...");
+        System.out.println(SPLITTER);
     }
 
     static void delete(String type) {
@@ -101,16 +109,17 @@ class Command {
                 delete(null);
             }
         }
-
     }
 
     static void settings() {
-        System.out.println("Settings:");
         System.out.println(SPLITTER);
+        System.out.println("Privacy settings:");
+        System.out.println(SPLITTER);
+
         if (currentUser.isEmailHidden()) {
-            System.out.println("Your email is hidden (others cannot see) — to show, type \"/show email\"");
+            System.out.println("Your email address is hidden (others cannot see) — to show, type \"/show email\"");
         } else {
-            System.out.println("Your email is not hidden (others can see) — to hide, type \"/hide email\"");
+            System.out.println("Your email address is not hidden (others can see) — to hide, type \"/hide email\"");
         }
 
         if (currentUser.isNumberHidden()) {
@@ -120,6 +129,7 @@ class Command {
         }
 
         System.out.println("\nYou can show or hide both by writing \"/show both\" and \"/hide both\" respectively.");
+        System.out.println("\nTip: You can return by typing /back or /cancel");
         System.out.println(SPLITTER);
 
         System.out.print(PROMPT);
@@ -127,28 +137,68 @@ class Command {
 
         if (input.startsWith("/hide")) {
             switch (input.substring(6)) {
-                case "email" -> hideEmail();
-                case "number" -> hideNumber();
+                case "email" -> {
+                    if (currentUser.isEmailHidden()) {
+                        System.out.println("You have already hidden your email address.");
+                    } else {
+                        hideEmail();
+                        System.out.println("Successful!");
+                    }
+                }
+                case "number" -> {
+                    if (currentUser.isNumberHidden()) {
+                        System.out.println("You have already hidden your phone number.");
+                    } else {
+                        hideNumber();
+                        System.out.println("Successful!");
+                    }
+                }
                 case "both" -> {
-                    hideEmail();
-                    hideNumber();
+                    if (currentUser.isEmailHidden() && currentUser.isNumberHidden()) {
+                        System.out.println("You have already hidden your phone number and email address.");
+                    } else {
+                        hideEmail();
+                        hideNumber();
+                        System.out.println("Successful!");
+                    }
                 }
             }
+
+            System.out.println("Successful!");
         } else if (input.startsWith("/show")) {
             switch (input.substring(6)) {
-                case "email" -> showEmail();
-                case "number" -> showNumber();
+                case "email" -> {
+                    if (!currentUser.isEmailHidden()) {
+                        System.out.println("You have already shown your email address.");
+                    } else {
+                        showEmail();
+                        System.out.println("Successful!");
+                    }
+                }
+                case "number" -> {
+                    if (!currentUser.isNumberHidden()) {
+                        System.out.println("You have already shown your phone number.");
+                    } else {
+                        showNumber();
+                        System.out.println("Successful!");
+                    }
+                }
                 case "both" -> {
-                    showEmail();
-                    showNumber();
+                    if (!currentUser.isEmailHidden() && !currentUser.isNumberHidden()) {
+                        System.out.println("You have already shown your phone number and email address.");
+                    } else {
+                        showEmail();
+                        showNumber();
+                        System.out.println("Successful!");
+                    }
                 }
             }
         } else if (input.equals("/back") || input.equals("cancel")) {
             System.out.println("Going back...");
             System.out.println(SPLITTER);
-            in.nextLine();
-            welcome();
             console();
+        } else {
+            settings();
         }
     }
 
@@ -193,6 +243,7 @@ class Command {
 
         printPosts(user);
         System.out.println(SPLITTER);
+        in.nextLine();
     }
 
     static void showCommentsOf(String postID) {
@@ -241,7 +292,6 @@ class Command {
         if (isPostExists(post)) {
             System.out.println("Your message:");
             System.out.print(PROMPT);
-            in.nextLine();
             String message = in.nextLine();
 
             Comment comment = new Comment(COMMENTS.size() + 10000,

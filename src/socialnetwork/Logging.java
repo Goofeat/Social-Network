@@ -71,10 +71,17 @@ class Logging {
     static void forgot() {
         final String VERIFY_CODE = String.format("%05d", new Random().nextInt(99999));
         int          attempts    = 3;
+        String email;
+
+        if (isAuthorized) {
+            System.out.println("We'll send you the verification code to your email address.");
+            email = currentUser.getEmail();
+        } else {
+            System.out.print("Your email: ");
+            email = in.next().toLowerCase();
+        }
 
         System.out.println(SPLITTER);
-        System.out.print("Your email: ");
-        String email = in.next().toLowerCase();
 
         if (getProperties(USERS_EMAIL).contains(email)) {
             try {
@@ -245,7 +252,7 @@ class Logging {
         in.nextLine();
 
         currentUser  = new User(userIDREG, passwordREG, firstNameREG, lastNameREG,
-                                ageREG, genderREG, emailREG, phoneNumberREG);
+                                ageREG, genderREG, emailREG, phoneNumberREG, true, true);
         isAuthorized = true;
 
         signUpUser(currentUser);

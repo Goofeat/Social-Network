@@ -231,7 +231,7 @@ class DatabaseHandler extends Configs {
         USERS.put(newUser.getUserID(), newUser);
 
         String insert =
-                "INSERT INTO " + USERS_TABLE + "(" + USER_PROPERTIES + ")" + "VALUES (?,?,?,?,?,?,?,?)";
+                "INSERT INTO " + USERS_TABLE + "(" + USER_PROPERTIES + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try (PreparedStatement prSt = getDbConnection().prepareStatement(insert)) {
             prSt.setString(1, newUser.getUserID());
@@ -242,6 +242,8 @@ class DatabaseHandler extends Configs {
             prSt.setString(6, newUser.getGender());
             prSt.setString(7, newUser.getEmail());
             prSt.setString(8, newUser.getPhoneNumber());
+            prSt.setBoolean(9, true);
+            prSt.setBoolean(10, true);
 
             prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
